@@ -1,0 +1,147 @@
+@model SeuProjeto.Models.Aluno
+
+@{
+    ViewData["Title"] = "Cadastro Confirmado";
+}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            padding: 50px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            padding: 36px;
+            width: 100%;
+            max-width: 500px;
+            height: fit-content;
+        }
+
+        .sucesso-header {
+            background-color: #eafaf1;
+            border: 1px solid #2ecc71;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .sucesso-icone {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .sucesso-titulo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 4px;
+        }
+
+        .sucesso-subtitulo {
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        .dados-titulo {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .linha {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+        }
+
+        .linha:last-child { border-bottom: none; }
+
+        .rotulo {
+            color: #888;
+            width: 140px;
+            flex-shrink: 0;
+        }
+
+        .valor {
+            color: #1a1a2e;
+            font-weight: 500;
+        }
+
+        .btn-cadastrar {
+            display: block;
+            width: 100%;
+            margin-top: 28px;
+            padding: 12px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-cadastrar:hover { background-color: #1e8449; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- Mensagem de sucesso -->
+        <div class="sucesso-header">
+            <div class="sucesso-icone"></div>
+            <p class="sucesso-titulo">Cadastro realizado com sucesso!</p>
+            <p class="sucesso-subtitulo">Os dados do aluno foram registrados.</p>
+        </div>
+
+        <!-- Exibindo os dados com @Model -->
+        <p class="dados-titulo">Dados cadastrados</p>
+
+        <div class="linha">
+            <span class="rotulo">Nome</span>
+            <span class="valor">@Model.Nome</span>
+        </div>
+        <div class="linha">
+            <span class="rotulo">E-mail</span>
+            <span class="valor">@Model.Email</span>
+        </div>
+        <div class="linha">
+            <span class="rotulo">RA</span>
+            <span class="valor">@Model.RA</span>
+        </div>
+        <div class="linha">
+            <span class="rotulo">Curso</span>
+            <span class="valor">@Model.Curso</span>
+        </div>
+        <div class="linha">
+            <span class="rotulo">Data de Nascimento</span>
+            <span class="valor">@Model.DataNascimento.ToString("dd/MM/yyyy")</span>
+        </div>
+
+        <!-- Botão Cadastrar outro -->
+        <a asp-action="Cadastrar" asp-controller="Aluno" class="btn-cadastrar">
+            + Cadastrar outro aluno
+        </a>
+
+    </div>
+</body>
+</html>
